@@ -1,5 +1,6 @@
 TARGET := $(shell uname)
 PREFIX=/usr/local/bin
+LIBDIR=/usr/local/lib/hxc2001
 all: HxCFloppyEmulator_cmdline HxCFloppyEmulator_software
 
 libhxcadaptor:
@@ -74,5 +75,11 @@ mrproper:
 .PHONY: libhxcadaptor libhxcfe libusbhxcfe HxCFloppyEmulator_cmdline HxCFloppyEmulator_software fltk mrproper clean
 
 install: 
-	mkdir -p $(DESTDIR)$(PREFIX)
-	install -m 755 $< $(DESTDIR)$(PREFIX)/hxcfloppyemulator
+	mkdir -p $(DESTDIR)$(PREFIX)/hxc2001
+	cp -f * $(DESTDIR)$(PREFIX)/hxc2001
+	touch $(DESTDIR)$(PREFIX)/hxcfloppyemulator
+	echo "#!/bin/sh" > $(DESTDIR)$(PREFIX)/hxcfloppyemulator
+	echo "cd $(PREFIX)/hxc2001 && ./hxcfloppyemulator" >> $(DESTDIR)$(PREFIX)/hxcfloppyemulator
+	echo "cd" >> $(DESTDIR)$(PREFIX)/hxcfloppyemulator
+	chmod +x $(DESTDIR)$(PREFIX)/hxcfloppyemulator
+	#install -m 755 hxcfloppyemulator $(DESTDIR)$(PREFIX)/hxcfloppyemulator
