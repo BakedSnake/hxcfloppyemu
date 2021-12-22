@@ -75,4 +75,4 @@ mrproper:
 
 install: all
 	mkdir -p $(DESTDIR)$(PREFIX)
-	install -m 644 $<  $(DESTDIR)$(PREFIX)/hxcfloppyemulator
+	install -m 755 $< $(DESTDIR)$(PREFIX)/hxcfloppyemulator
