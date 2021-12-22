@@ -1,5 +1,5 @@
 TARGET := $(shell uname)
-
+PREFIX=/usr/local/bin
 all: HxCFloppyEmulator_cmdline HxCFloppyEmulator_software
 
 libhxcadaptor:
@@ -74,5 +74,5 @@ mrproper:
 .PHONY: libhxcadaptor libhxcfe libusbhxcfe HxCFloppyEmulator_cmdline HxCFloppyEmulator_software fltk mrproper clean
 
 install: all
-	cp -f hxcfloppyemulator /usr/local/bin/hxc2001
-	chmod +x /usr/local/bin/hxc2001
+	mkdir -p $(DESTDIR)$(PREFIX)
+	install -m 644 hxcfloppyemulator $(DESTDIR)$(PREFIX)/hxc2001
