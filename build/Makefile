@@ -73,6 +73,6 @@ mrproper:
 
 .PHONY: libhxcadaptor libhxcfe libusbhxcfe HxCFloppyEmulator_cmdline HxCFloppyEmulator_software fltk mrproper clean
 
-install: all
+install: HxCFloppyEmulator_software 
 	mkdir -p $(DESTDIR)$(PREFIX)
 	install -m 755 $< $(DESTDIR)$(PREFIX)/hxcfloppyemulator
