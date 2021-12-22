@@ -74,5 +74,5 @@ mrproper:
 .PHONY: libhxcadaptor libhxcfe libusbhxcfe HxCFloppyEmulator_cmdline HxCFloppyEmulator_software fltk mrproper clean
 
 install: all
-	cp -f hxcfloppyemulator /usr/local/bin/hxc2001
-	chmod +x /usr/local/bin/hxc2001
+  install -m 644 hxcfloppyemulator /usr/local/bin/
+
